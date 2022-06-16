@@ -38,6 +38,12 @@ class TestCase(unittest.TestCase):
         self.assertEqual(data['success'], True)
         self.assertEqual(data['id'], '1')
 
+    def test_delete_todo_success(self):
+        response = self.client().delete('/todos/1', json = {'description': 'HIT ON GIRL'})
+        
+        data = json.loads(response.data)
+
+
 # python -m unittest
 if __name__ == '__main__':
     unittest.main()
